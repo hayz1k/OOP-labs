@@ -1,0 +1,161 @@
+#include <iostream>
+#include <math.h>
+#include <cmath>
+#define PI 3.14159
+#define epsilon 0.001
+using namespace std;
+
+
+double number1(double a, double b);
+double number2(double x);
+double number4(double x);
+
+void main() {
+	int choice = -1;
+	int tree = -1;
+	double a, b;
+	while (choice != 0) {
+		cout << "Выберите пункт меню: " << endl;
+		cout << "Задание 1" << endl;
+		cout << "Задание 2" << endl;
+		cout << "Задание 3" << endl;
+		cout << "Задание 4" << endl;
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			cout << "Введите A" << endl;
+			cin >> a;
+			cout << "Введите B" << endl;
+			cin >> b;
+			cout << "Сумма чисел A и B = " << number1(a, b) << endl;
+			break;
+
+		case 2:
+			cout << "Введите x" << endl;
+			cin >> a;
+			cout << "ОТВЕТ " << number2(a) << endl;
+			break;
+
+		case 3:
+			cout << "Выберите пункт меню: " << endl;
+			cout << "Задача 1" << endl;
+			cout << "Задача 2" << endl;	
+			cout << "Задача 3" << endl;
+			cout << "Задача 4" << endl;
+			cout << "Задача 5" << endl;
+			cout << "Задача 6" << endl;			
+			cout << "Задача 7" << endl;			
+			cin >> tree;
+			switch (tree) {
+			case 1:
+				break;
+
+			case 2:
+				break;
+			
+			case 3:
+				break;
+			
+			case 4:
+				break;
+			
+			case 5:
+				break;
+
+			case 6:
+				break;
+
+			case 7:
+				break;
+
+			}
+			break;
+
+		case 4:
+			break;
+
+		}
+	}
+
+
+}
+
+double number1(double a, double b) {
+	double result;
+	double p1, p2;
+	p1 = sinf(a * a) + b * b * b;
+	p2 = pow(1 + (b / (a + cosf(PI * b*b))), 1/2);
+	result = atan(p1 / p2);
+	return result;
+}
+
+double number2(double x) {
+	if (fabs(x) > 1) {
+		return -999;
+	}
+	double result = 0;
+	double diff = 1;
+	double curr, next, count = 0, var = 1;
+	for (int n = 1; diff > epsilon; n++) {
+
+		if (n % 2 == 0) {
+			for (int i = 2 * n - 1; i > 0; i--) {
+				var *= x;
+			}
+			result -= var / (2 * n - 1);
+			next = result;
+		}
+		else {
+			for (int i = 2 * n - 1; i > 0; i--) {
+				var *= x;
+			}
+			result += var / (2 * n - 1);
+			curr = result;
+		}
+		if (count >= 2) diff = fabs(curr - next);
+		count++;
+	}
+	return result;
+}
+
+// знак "@" ниже имеет смысл слова "вместо"
+// int i = 1 @ i = 1 | не объявлена переменная i
+// n / 2 + 1 @ n div 2 | n div 2 - n нацело деленное на два, один делитель будет потерян
+// n % i == 0 @ n % i = 0 | оператор присваивания заменен на равенство
+
+double number3_1(int n) {
+	for (int i = 1; i < n / 2 + 1; i++) {
+		if (n % i != 0) {
+			cout << i << endl;
+		}
+	}
+}
+
+double number3_2() {
+
+}
+
+double number3_3() {
+
+}
+
+double number3_4() {
+
+}
+
+double number3_5() {
+
+}
+
+double number3_6() {
+
+}
+
+double number3_7() {
+
+}
+
+double number4(double x) {
+	if (x > 0) return 1;
+	return 0;
+}
